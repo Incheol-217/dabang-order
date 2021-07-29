@@ -1,0 +1,195 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+	isELIgnored="false" 
+%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
+<%
+request.setCharacterEncoding("UTF-8");
+%>    
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Insert title here</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- 구글폰트 -->
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+        <style>
+
+            .wrap {
+                width: 500px;
+                margin: auto;
+            }
+
+            .mytitle {
+                background-color: green;
+
+                width: 500px;
+                height: 250px;
+
+                color: white;
+                text-align: center;
+
+                background-image: url("https://images.pexels.com/photos/5698098/pexels-photo-5698098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+                background-size: cover;
+                background-position: center;
+
+                border-radius: 10px;
+
+                padding: 70px;
+            }
+
+            .lnput-category {
+                margin-top: 10px;
+            }
+
+            .lnput-box {
+                width: 500px;
+                margin-bottom: 5px;
+            }
+
+            .password-box {
+                margin-bottom: 20px;
+            }
+
+            .wrap-btn {
+                margin: auto;
+            }
+
+            .submit-box {
+                width: 370px;
+            }
+
+            .reset-box {
+                width: 125px;
+            }
+
+            .join-btn {
+                width: 500px;
+                margin-top: 10px;
+            }
+
+            /* 부트스트랩 버튼 색상 변경 */
+            .btn.btn-primary {
+                color: #fff;
+                background-color: #6b320bcb;
+                border-color: #6b320bcb;
+            }
+            .btn.btn-primary.focus,
+            .btn.btn-primary:focus {
+                color: #fff;
+                background-color: #b66733cb;
+                border-color: #b66733cb;
+                outline: none;
+                box-shadow: none;
+            }
+            .btn.btn-primary:hover {
+                color: #fff;
+                background-color: #b66733cb;
+                border-color: #b66733cb;
+                outline: none;
+                box-shadow: none;
+            }
+            .btn.btn-primary.active,
+            .btn.btn-primary:active {
+                color: #fff;
+                background-color: #b66733cb;
+                border-color: #b66733cb;
+                outline: none;
+            }
+            .btn.btn-primary.active.focus,
+            .btn.btn-primary.active:focus,
+            .btn.btn-primary.active:hover,
+            .btn.btn-primary:active.focus,
+            .btn.btn-primary:active:focus,
+            .btn.btn-primary:active:hover {
+                color: #fff;
+                background-color: #b66733cb;
+                border-color: #b66733cb;
+                outline: none;
+                box-shadow: none;
+            }
+
+
+            /* 다시쓰기 버튼 색상변경 */
+            .btn.btn-outline-primary {
+                color: #6b320bcb;
+                background-color: #fff;
+                border-color: #6b320bcb;
+
+            }
+            .btn.btn-outline-primary.focus,
+            .btn.btn-outline-primary:focus {
+                color: #fff;
+                background-color: #6b320bcb;
+                border-color: #6b320bcb;
+                outline: none;
+                box-shadow: none;
+            }
+            .btn.btn-outline-primary:hover {
+                color: #fff;
+                background-color: #6b320bcb;
+                border-color: #6b320bcb;
+                outline: none;
+                box-shadow: none;
+            }
+            .btn.btn-outline-primary.active,
+            .btn.btn-outline-primary:active {
+                color: #fff;
+                background-color: #6b320bcb;
+                border-color: #6b320bcb;
+                outline: none;
+            }
+            .btn.btn-outline-primary.active.focus,
+            .btn.btn-outline-primary.active:focus,
+            .btn.btn-outline-primary.active:hover,
+            .btn.btn-outline-primary:active.focus,
+            .btn.btn-outline-primary:active:focus,
+            .btn.btn-outline-primary:active:hover {
+                color: #fff;
+                background-color: #6b320bcb;
+                border-color: #6b320bcb;
+                outline: none;
+                box-shadow: none;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <form method="post" action="<%=request.getContextPath()%>/login/loginCheck.do">
+                <fieldset>
+                    <legend class="mytitle">
+                        <h1>로그인 페이지</h1>
+                        <h5>아이디, 패스워드를 입력해주세요.</h5>
+                    </legend>
+
+                    <label for="user_id" class="lnput-category"> 아이디 </label>
+                    <input class="form-control lnput-box" type="text" id="ts_id" name="ts_id" size="10" autofocus placeholder="아이디를 입력하세요." aria-label="default input example">
+    
+                    <label for="user_pwd" class="lnput-category"> 비밀번호 </label>
+                    <input class="form-control lnput-box password-box" type="password" id="ts_pwd" name="ts_pwd" placeholder="패스워드를 입력하세요." aria-label="default input example">
+                    
+                    <div class="wrap-btn">
+                        <input class="btn btn-primary submit-box" type="submit" value="로그인">
+                        <button type="reset" value="다시쓰기" class="btn btn-outline-primary reset-box">다시쓰기</button>
+    
+                        <div class="d-grid gap-2">
+                            <button onclick="location.href='member.jsp'" class="btn btn-primary join-btn" type="button">회원가입</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
