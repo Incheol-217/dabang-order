@@ -1,0 +1,213 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+      pageEncoding="UTF-8"
+    isELIgnored="false" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />
+<%
+  request.setCharacterEncoding("UTF-8");
+%> 
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보 수정창</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <style>
+        .wrap {
+            width: 1000px;
+            margin: auto;
+        }
+
+        .title {
+            margin: auto;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 10 20px;
+        }
+
+        /* table, td, th {
+            border-collapse : collapse;
+            border : 1px solid black;
+            border-spacing: 10 20px;
+        }; */
+
+        .td-nameBlock {
+            width: 200px;
+            text-align: right;
+        }
+
+        .td-inputBlock {
+            width: 800px;
+            margin: auto;
+        }
+
+        .input-box {
+            width: 400px;
+        }
+
+        /* 부트스트랩 버튼 색상 변경 */
+        .btn.btn-primary {
+        color: #fff;
+        background-color: #6b320bcb;
+        border-color: #6b320bcb;
+        }
+        .btn.btn-primary.focus,
+        .btn.btn-primary:focus {
+            color: #fff;
+            background-color: #b66733cb;
+            border-color: #b66733cb;
+            outline: none;
+            box-shadow: none;
+        }
+        .btn.btn-primary:hover {
+            color: #fff;
+            background-color: #b66733cb;
+            border-color: #b66733cb;
+            outline: none;
+            box-shadow: none;
+        }
+        .btn.btn-primary.active,
+        .btn.btn-primary:active {
+            color: #fff;
+            background-color: #b66733cb;
+            border-color: #b66733cb;
+            outline: none;
+        }
+        .btn.btn-primary.active.focus,
+        .btn.btn-primary.active:focus,
+        .btn.btn-primary.active:hover,
+        .btn.btn-primary:active.focus,
+        .btn.btn-primary:active:focus,
+        .btn.btn-primary:active:hover {
+            color: #fff;
+            background-color: #b66733cb;
+            border-color: #b66733cb;
+            outline: none;
+            box-shadow: none;
+        }
+
+
+        /* 다시쓰기 버튼 색상변경 */
+        .btn.btn-outline-primary {
+            color: #6b320bcb;
+            background-color: #fff;
+            border-color: #6b320bcb;
+
+        }
+        .btn.btn-outline-primary.focus,
+        .btn.btn-outline-primary:focus {
+            color: #fff;
+            background-color: #6b320bcb;
+            border-color: #6b320bcb;
+            outline: none;
+            box-shadow: none;
+        }
+        .btn.btn-outline-primary:hover {
+            color: #fff;
+            background-color: #6b320bcb;
+            border-color: #6b320bcb;
+            outline: none;
+            box-shadow: none;
+        }
+        .btn.btn-outline-primary.active,
+        .btn.btn-outline-primary:active {
+            color: #fff;
+            background-color: #6b320bcb;
+            border-color: #6b320bcb;
+            outline: none;
+        }
+        .btn.btn-outline-primary.active.focus,
+        .btn.btn-outline-primary.active:focus,
+        .btn.btn-outline-primary.active:hover,
+        .btn.btn-outline-primary:active.focus,
+        .btn.btn-outline-primary:active:focus,
+        .btn.btn-outline-primary:active:hover {
+            color: #fff;
+            background-color: #6b320bcb;
+            border-color: #6b320bcb;
+            outline: none;
+            box-shadow: none;
+        }
+
+        /* focus 색상 변경 */
+        .textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+            border-color: rgba(131, 76, 41, 0.8);
+            box-shadow: 0 1px 1px rgba(105, 63, 37, 0.747) inset, 0 0 8px rgba(156, 87, 44, 0.6);
+            outline: 0 none;
+        }
+
+
+        .sendForm {
+            width: 200px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1 class="title">회원정보 수정</h1>
+
+        <form method="post" action="${contextPath}/login/modMember.do?ts_id=${memInfo.ts_id}">
+            <table>
+                <tr class="tr-block">
+                    <td class="td-nameBlock">
+                        <p>아이디</p>
+                    </td>
+                    <td class="td-inputBlock">
+                        <input class="form-control lnput-box" type="text" id="ts_id" name="ts_id" value="${memInfo.ts_id}" disabled>
+                    </td>
+                </tr>
+                <tr class="tr-block">
+                    <td class="td-nameBlock">
+                        <p>비밀번호</p>
+                    </td>
+                    <td class="td-inputBlock">
+                        <input class="form-control lnput-box password-box" type="password" id="ts_pwd" name="ts_pwd" value="${memInfo.ts_pwd} " disabled>
+                    </td>
+                </tr>
+                <tr class="tr-block">
+                    <td class="td-nameBlock">
+                        <p>빌딩이름</p>
+                    </td>
+                    <td class="td-inputBlock">
+                        <input class="form-control lnput-box" type="text" id="ts_bdname" name="ts_bdname" value="${memInfo.ts_bdname}">
+                    </td>
+                </tr>
+                <tr class="tr-block">
+                    <td class="td-nameBlock">
+                        <p>빌딩호수</p>
+                    </td>
+                    <td class="td-inputBlock">
+                        <input class="form-control lnput-box" type="text" id="ts_bdno" name="ts_bdno" value="${memInfo.ts_bdno}">
+                    </td>
+                </tr>
+                <tr class="tr-block">
+                    <td class="td-nameBlock">
+                        <p>전화번호</p>
+                    <td>
+                    <td class="td-inputBlock">
+                        <input class="form-control lnput-box" type="text" id="ts_phone" name="ts_phone" value="${memInfo.ts_phone }" disabled>
+                    </td>
+                </tr>
+            </table>
+
+            <fieldset class="sendform wrap-btn">
+                <input class="btn btn-primary submit-box" type="submit" value="수정하기">
+                <button type="reset" value="다시입력" class="btn btn-outline-primary reset-box">다시입력</button>
+            </fieldset>
+
+        </form>
+    </div>
+</html>
